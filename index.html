@@ -101,10 +101,17 @@
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
-          
-          
-          
-          
+           var canvas2 = document.getElementById('mySecondCanvas'); // This piece of JavaScript assigns the HTML canvas element with the ID 'mySecondCanvas' to the constant variable canvas2.
+           var context2 = canvas2.getContext("2d"); // This piece of JavaScript initializes a 2D rendering context for an HTML canvas element.
+           var imageData = context.getImageData(0, 0, 600, 500); // This piece of JavaScript retrieves the pixel data from the canvas based on the parameters of (0, 0, 600, 500).
+           var data = imageData.data; // This piece of JavaScript simplifies the variable imageData to data, so it can be easier to put in when modifying the pixels.
+
+            // This code alters the image's pixels to blue.
+            for(var i = 0, n = data.length; i < n; i += 4) // This code is a loop that iterates over an array called "data" with a step size of 4.
+            data[i] = 0; // This code sets the data for green intensity to zero.
+            data[i + 1] = 0; // This code sets the data for red intesity to zero.
+            context2.putImageData(imageData, 0, 0); // This piece of JavaScript applies the parameters and conditions to the image on the second canvas.
+         
         } // end of img.onload
         
         img.src = reader.result;
